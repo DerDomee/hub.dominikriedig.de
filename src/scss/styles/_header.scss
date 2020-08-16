@@ -1,0 +1,66 @@
+header {
+
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 2rem;
+  position: relative;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include override-medium-screen {
+    width: 87%;
+  }
+
+  @include override-large-screen {
+    width: 80%;
+  }
+
+  @include override-largest-screen {
+    width: 75%;
+  }
+
+  .header-headline {
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .header-social {
+    text-align: center;
+    vertical-align: middle;
+
+    a {
+      margin-right: 0.3rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      .icon-inline {
+        width: 2rem;
+        display: inline;
+        vertical-align: middle;
+      }
+    }
+    span.social-group-divider {
+      margin-right: 1rem;
+    }
+  }
+
+  @include override-largest-screen {
+    display: block;
+
+    .header-social {
+      position: absolute;
+      text-align: right;
+      right: 0;
+      top: 0;
+    }
+  }
+}

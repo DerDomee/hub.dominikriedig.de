@@ -1,0 +1,12 @@
+$first-card-transform-rate: 6rem;
+
+
+// Everything under breakpoint "small" is called "small screen"
+// Everything between breakpoints "small, medium" is called "medium screen"
+// Everything between breakpoints "medium, large" is called "large screen"
+// Everything above breakpoint "large" is called "largest screen".
+$breakpoint-small: 768px !default;
+$breakpoint-medium: 1024px !default;
+$breakpoint-large: 1200px !default;
+//Breakpoint list for use in loops
+$breakpoints: $breakpoint-small, $breakpoint-medium, $breakpoint-large;

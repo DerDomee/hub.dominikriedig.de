@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+:root {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+html {
+  background-color: var(--c-body-background);
+  color: var(--c-body-text);
+}
+
+a {
+  color: var(--c-link-text);
+  text-decoration: none;
+
+  transition: all 100ms;
+
+  &:hover {
+    color: var(--c-link-hover-text);
+    text-decoration: underline;
+    transition: all 100ms;
+  }
+}

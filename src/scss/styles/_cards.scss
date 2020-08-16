@@ -1,0 +1,148 @@
+.card {
+  background-color: var(--c-card-background);
+  color: var(--c-card-text);
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--c-card-border);
+  box-shadow: 0 0 1rem 1px var(--c-card-shadow-01),
+              inset 0 0 1rem 1px var(--c-card-shadow-02);
+
+  .card-header {
+    h2 {
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--c-card-border);
+      margin-bottom: 1rem;
+    }
+  }
+
+  .card-body {
+    ul {
+      list-style: none;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      line-height: 1.6rem;
+      color: var(--c-body-text-muted);
+    }
+    margin-bottom: 2rem;
+  }
+
+  .card-footer {
+    display: flex;
+    position: relative;
+    a {
+      margin: 0 auto 1.5rem auto;
+      padding: 1rem;
+      text-transform: uppercase;
+      border: 2px solid $color-03;
+      color: var(--c-body-text);
+      transition: all 250ms;
+
+      &:hover {
+        background-color: $color-03;
+        text-decoration: none;
+        color: $black-00;
+      }
+    }
+  }
+
+  &:first-child {
+    .card-footer {
+      z-index: 3;
+      a {
+        position: relative;
+        background-color: var(--c-card-background);
+        padding: 1.5rem;
+        font-size: 1.2rem;
+        min-width: #{"min("}400px, 65%#{")"};
+
+        &::before {
+          position: absolute;
+          content: "";
+          top: -5%;
+          left: -5%;
+          right: 0;
+          border-radius: 50%;
+          z-index: -2;
+          height: 90%;
+          width: 90%;
+          opacity: 0.5;
+          background-color: $color-03;
+          filter: blur(2rem);
+          animation: backGlow1 15s ease infinite;
+
+          @keyframes backGlow1 {
+          	0% {
+          		transform: translate(10%, 10%) scale(1);
+          		opacity: 0.5;
+            }
+          	25% {
+          		transform: translate(-10%, 10%) scale(0.8);
+          		opacity: 0.2;
+            }
+          	50% {
+          		transform: translate(-10%, -10%) scale(1.2);
+          		opacity: 0.8;
+            }
+          	75% {
+          		transform: translate(10%, -10%) scale(1.1);
+          		opacity: 0.2;
+            }
+          	100% {
+          		transform: translate(10%, 10%) scale(1);
+          		opacity: 0.5;
+            }
+          }
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          top: -5%;
+          left: -5%;
+          right: 0;
+          border-radius: 50%;
+          z-index: -1;
+          height: 95%;
+          width: 95%;
+          opacity: 0.5;
+          background-color: $color-02;
+          filter: blur(2rem);
+          animation: backGlow2 15s ease infinite;
+
+          @keyframes backGlow2 {
+          	0% {
+          		transform: translate(-10%, -10%) scale(1);
+          		opacity: 0.5;
+            }
+          	25% {
+          		transform: translate(10%, -10%) scale(1.2);
+          		opacity: 0.2;
+            }
+          	50% {
+          		transform: translate(15%, 15%) scale(0.9);
+          		opacity: 0.9;
+            }
+          	75% {
+          		transform: translate(-10%, 10%) scale(1.1);
+          		opacity: 0.8;
+            }
+          	100% {
+          		transform: translate(-10%, -10%) scale(1);
+          		opacity: 0.5;
+            }
+          }
+        }
+
+        &:hover {
+          &::before,
+          &::after {
+            opacity: 0;
+            visibility: hidden;
+          }
+          box-shadow: 0 0 4rem -0.1rem $color-03;
+          background-color: $color-03;
+        }
+      }
+    }
+  }
+}

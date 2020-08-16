@@ -1,0 +1,41 @@
+{
+  "name": "dde-hub",
+  "version": "1.0.0",
+  "description": "Page Browser (Hub) for all Subdomains on dominikriedig.de",
+  "main": "index.js",
+  "scripts": {
+    "all": "npm-run-all css js deploy",
+    "clean": "rm -rf dist deploy",
+    "css": "npm-run-all css-compile css-autoprefix css-minify",
+    "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true src/scss/ -o dist/css/",
+    "css-autoprefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "css-minify": "cleancss --level 1 --format breakWith=lf --source-map --source-map-inline-sources --output dist/css/style.min.css dist/css/style.css",
+    "deploy": "mkdir -p deploy && cp src/html/index.html deploy/index.html && cp dist/css/style.min.css deploy/style.min.css && cp dist/css/style.min.css.map deploy/style.min.css.map && cp dist/js/script.js deploy/script.js && cp dist/js/script.js.map deploy/script.js.map && cp -r src/icons deploy && cp -r src/images deploy",
+    "dist": "npm-run-all css js deploy",
+    "js": "npm-run-all js-compile",
+    "js-compile": "rollup --config build/rollup.config.js --sourcemap",
+    "serve": "http-server deploy/",
+    "start": "npm-run-all all serve"
+  },
+  "keywords": [],
+  "author": "Dominik Riedig",
+  "homepage": "https://hub.dominikriedig.de",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "autoprefixer": "^9.7.4",
+    "clean-css-cli": "^4.3.0",
+    "http-server": "^0.12.3",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
+    "rollup": "^2.2.0",
+    "rollup-plugin-babel": "^4.4.0"
+  },
+  "dependencies": {}
+}

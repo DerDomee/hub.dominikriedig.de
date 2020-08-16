@@ -1,0 +1,18 @@
+footer {
+  width: 98%;
+  margin: 3rem auto 0 auto;
+  border-top: 1px solid var(--c-card-border);
+  padding-top: 1.5rem;
+  margin-bottom: 3rem;
+  @include override-medium-screen {
+    width: 90%
+  }
+
+  @include override-large-screen {
+    width: 85%
+  }
+
+  @include override-largest-screen {
+    width: 80%
+  }
+}

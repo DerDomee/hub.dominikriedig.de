@@ -1,0 +1,55 @@
+// Color Definition
+$white-00: rgba(255, 255, 255, 1);
+$white-01: rgba(228, 228, 228, 1);
+$white-02: rgba(194, 194, 194, 1);
+$white-03: rgba(150, 150, 150, 1);
+$white-04: rgba(100, 100, 100, 1);
+$black-04: rgba( 65,  65,  65, 1);
+$black-03: rgba( 56,  56,  56, 1);
+$black-02: rgba( 48,  48,  48, 1);
+$black-01: rgba( 42,  42,  42, 1);
+$black-00: rgba(  0,   0,   0, 1);
+
+$color-01: rgba( 52, 152, 219, 1);    // Primary Color, Brand
+$color-02: rgba(212,  68, 121, 1);    // Secondary Color
+$color-03: rgba(101, 182,  25, 1);    // Success Color
+$color-04: rgba(230, 126,  34, 1);    // Warning Color
+$color-05: rgba(192,  57,  43, 1);    // Error Color
+
+$color-06: rgba(255, 210, 160, 1);    // Highlight Color #1
+$color-07: rgba(192,  57,  43, 1);    // Highlight Color #2
+
+
+$scheme: (
+//                                 DARK THEME                LIGHT THEME
+      "c-transparent": [           transparent,              transparent         ],
+
+  "c-body-background": [           $black-02,                $white-01           ],
+        "c-body-text": [           $white-00,                $black-00           ],
+  "c-body-text-muted": [           $white-03,                $white-04           ],
+
+        "c-link-text": [           $color-01,         darken($color-01, 10%)     ],
+  "c-link-hover-text": [    darken($color-01, 10%),          $color-01           ],
+
+  "c-card-background": [           $black-02,                $white-01           ],
+        "c-card-text": [           $white-00,                $black-00           ],
+      "c-card-border": [           $black-04,                $white-02           ],
+   "c-card-shadow-01": [           $black-02,                $white-02           ],
+   "c-card-shadow-02": [           $black-01,                $white-01           ],
+);
+
+:root {
+  @each $colorkey, $colors in $scheme {
+    $spec-color: nth($colors, 1);
+    --#{$colorkey}: #{$spec-color};
+  }
+}
+
+@media(prefers-color-scheme: light) {
+  :root {
+    @each $colorkey, $colors in $scheme {
+      $spec-color: nth($colors, 2);
+      --#{$colorkey}: #{$spec-color};
+    }
+  }
+}
